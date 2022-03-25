@@ -17,7 +17,7 @@ const persistedReducer = persistRootReducer(
 const store = createStore(
   persistedReducer,
   undefined,
-  composeWithDevTools(applyMiddleware(sagaMiddleware, logger))
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
 const persistor = persistStore(store);
