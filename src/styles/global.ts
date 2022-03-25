@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -31,6 +31,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   button, a {
     cursor: pointer;
+  }
+  a {
+    text-decoration: none;
   }
   [disabled] {
     opacity: 0.6;

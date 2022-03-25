@@ -54,7 +54,7 @@ function* getEventById(action: () => any): SagaIterator {
     action.next && action.next(payload);
   } catch (e) {
     yield put({
-      type: constants.FETCH_ALL_ADDRESS.FAILED,
+      type: constants.GET_EVENT_BY_ID.FAILED,
       error: true,
       errorMessage: e,
     });

@@ -1,26 +1,40 @@
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL =
+  "https://api.spaceflightnewsapi.net/v3" || process.env.BASE_URL;
 
-export async function getAllArticles() {
-  const request = await fetch(`${BASE_URL}/articles`);
+export function getAllArticles() {
+  const request = fetch(`${BASE_URL}/articles`)
+    .then((data) => data.json())
+    .catch((erro) => console.error(erro));
+
   return request;
 }
 
-export async function getArticlesCount() {
-  const request = await fetch(`${BASE_URL}/articles/count`);
+export function getArticlesCount() {
+  const request = fetch(`${BASE_URL}/articles/count`)
+    .then((data) => data.json())
+    .catch((erro) => console.error(erro));
+
   return request;
 }
 
-export async function getArticleById(id: number) {
-  const request = await fetch(`${BASE_URL}/articles/${id}`);
+export function getArticleById(id: number) {
+  const request = fetch(`${BASE_URL}/articles/${id}`)
+    .then((data) => data.json())
+    .catch((erro) => console.error(erro));
+
   return request;
 }
 
-export async function getLaunchById(id: number) {
-  const request = await fetch(`${BASE_URL}/articles/launch/${id}`);
+export function getLaunchById(id: number) {
+  const request = fetch(`${BASE_URL}/articles/launch/${id}`)
+    .then((data) => data.json())
+    .catch((erro) => console.error(erro));
   return request;
 }
 
-export async function getEventById(id: number) {
-  const request = await fetch(`${BASE_URL}/articles/event/${id}`);
+export function getEventById(id: number) {
+  const request = fetch(`${BASE_URL}/articles/event/${id}`)
+    .then((data) => data.json())
+    .catch((erro) => console.error(erro));
   return request;
 }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { devices } from "../../helpers/media_queries";
 
 export const Image = styled.img`

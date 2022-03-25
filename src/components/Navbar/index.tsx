@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { NavLink as Link } from "react-router-dom";
+
 import {
   AppBar,
   Button,
@@ -46,10 +48,18 @@ export function Navbar({ toggleTheme }: Props) {
               onChange={(e, value) => setValue(value)}
               style={{ color: myTheme.colors.text }}
             >
-              <Tab label="Home" />
-              <Tab label="Services" />
-              <Tab label="About" />
-              <Tab label="Contact" />
+              <Link to="/">
+                <Tab label="Home" />
+              </Link>
+              <Link to="/services">
+                <Tab label="Services" />
+              </Link>
+              <Link to="/about">
+                <Tab label="About" />
+              </Link>
+              <Link to="/contact">
+                <Tab label="Contact" />
+              </Link>
             </Tabs>
             <Button sx={{ marginLeft: "auto" }} variant="contained">
               Login

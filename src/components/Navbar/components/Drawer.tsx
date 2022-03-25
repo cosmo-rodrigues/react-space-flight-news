@@ -9,12 +9,15 @@ import {
   ListItemText,
 } from "@mui/material";
 
+import { useTheme as styledTheme } from "styled-components";
+
 import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = ["Home", "Services", "About", "Contact"];
 
 export function DrawerComponent() {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const myTheme = styledTheme();
 
   return (
     <>
@@ -34,7 +37,7 @@ export function DrawerComponent() {
         </List>
       </Drawer>
       <IconButton
-        sx={{ color: "white", marginLeft: "auto" }}
+        sx={{ color: myTheme.colors.text, marginLeft: "auto" }}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
         <MenuIcon />

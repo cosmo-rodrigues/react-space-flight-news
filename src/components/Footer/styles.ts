@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.nav`
+export const Container = styled.footer`
   background: ${({ theme }) => theme.colors.background};
   display: flex;
   height: 80px;
