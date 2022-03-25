@@ -76,15 +76,15 @@ function* getLaunchById(action: () => any): SagaIterator {
 }
 
 function* watchGetAllBlogs() {
-  yield takeLatest(constants.GET_ALL_ARTICLES.ACTION, getAllBlogs);
+  yield takeLatest(constants.GET_ALL_BLOGS.ACTION, getAllBlogs);
 }
 
 function* watchGetBlogsCount() {
-  yield takeLatest(constants.GET_ARTICLES_COUNT.ACTION, getBlogsCount);
+  yield takeLatest(constants.GET_BLOGS_COUNT.ACTION, getBlogsCount);
 }
 
 function* watchGetBlogById() {
-  yield takeLatest(constants.GET_ARTICLE_BY_ID.ACTION, getBlogById);
+  yield takeLatest(constants.GET_BLOG_BY_ID.ACTION, getBlogById);
 }
 
 function* watchGetEventById() {

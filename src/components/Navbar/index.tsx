@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 import {
   AppBar,
@@ -9,53 +9,57 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-} from '@mui/material';
+} from "@mui/material";
 
-import AddBusinessRoundedIcon from '@mui/icons-material/AddBusinessRounded';
+import { Image } from "./styles";
 
-import { DrawerComponent } from './components/Drawer';
+import { DrawerComponent } from "./components/Drawer";
+import { Switcher } from "./components/Switcher";
 
-export function Navbar() {
+interface Props {
+  toggleTheme(): void;
+}
+
+export function Navbar({ toggleTheme }: Props) {
   const [value, setValue] = useState();
   const theme = useTheme();
-  console.log(theme);
-  const isMatch = useMediaQuery(theme.breakpoints.down('md'));
-  console.log(isMatch);
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <>
-      <AppBar sx={{ background: '#063970' }}>
-        <Toolbar>
-          <AddBusinessRoundedIcon sx={{ transform: 'scale(2)' }} />
-          {isMatch ? (
-            <>
-              <Typography sx={{ fontSize: '2rem', paddingLeft: '10%' }}>Spaceship</Typography>
-              <DrawerComponent />
-            </>
-          ) : (
-            <>
-              <Tabs
-                sx={{ marginLeft: 'auto' }}
-                indicatorColor='secondary'
-                textColor='inherit'
-                value={value}
-                onChange={(e, value) => setValue(value)}
-              >
-                <Tab label='Home' />
-                <Tab label='Services' />
-                <Tab label='About' />
-                <Tab label='Contact' />
-              </Tabs>
-              <Button sx={{ marginLeft: 'auto' }} variant='contained'>
-                Login
-              </Button>
-              <Button sx={{ marginLeft: '10px' }} variant='contained'>
-                SignUp
-              </Button>
-            </>
-          )}
-        </Toolbar>
-      </AppBar>
-    </>
+    <AppBar sx={{ background: "#063970" }}>
+      <Toolbar>
+        <Image src="logo.png" />
+        {isMatch ? (
+          <>
+            <Typography sx={{ fontSize: "2rem", paddingLeft: "10%" }}>
+              Spaceship
+            </Typography>
+            <DrawerComponent />
+          </>
+        ) : (
+          <>
+            <Tabs
+              sx={{ marginLeft: "auto" }}
+              indicatorColor="secondary"
+              textColor="inherit"
+              value={value}
+              onChange={(e, value) => setValue(value)}
+            >
+              <Tab label="Home" />
+              <Tab label="Services" />
+              <Tab label="About" />
+              <Tab label="Contact" />
+            </Tabs>
+            <Button sx={{ marginLeft: "auto" }} variant="contained">
+              Login
+            </Button>
+            <Button sx={{ marginLeft: "10px" }} variant="contained">
+              SignUp
+            </Button>
+          </>
+        )}
+        <Switcher label="dark" toggleTheme={toggleTheme} />
+      </Toolbar>
+    </AppBar>
   );
 }

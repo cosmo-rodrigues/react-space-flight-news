@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.nav`
-  background: ${({ theme }) => theme.colors.black_90};
+  background: ${({ theme }) => theme.colors.background};
   display: flex;
   height: 80px;
   justify-content: space-between;
@@ -11,6 +11,6 @@ export const Container = styled.nav`
 `;
 
 export const Copyright = styled.p`
-  color: ${({ theme }) => theme.colors.white_100};
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 400;
 `;

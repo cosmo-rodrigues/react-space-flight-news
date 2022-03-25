@@ -48,15 +48,15 @@ function* getReportById(action: () => any): SagaIterator {
 }
 
 function* watchGetAllReports() {
-  yield takeLatest(constants.GET_ALL_ARTICLES.ACTION, getAllReports);
+  yield takeLatest(constants.GET_ALL_REPORTS.ACTION, getAllReports);
 }
 
 function* watchGetReportsCount() {
-  yield takeLatest(constants.GET_ARTICLES_COUNT.ACTION, getReportsCount);
+  yield takeLatest(constants.GET_REPORTS_COUNT.ACTION, getReportsCount);
 }
 
 function* watchGetReportById() {
-  yield takeLatest(constants.GET_ARTICLE_BY_ID.ACTION, getReportById);
+  yield takeLatest(constants.GET_REPORT_BY_ID.ACTION, getReportById);
 }
 
 export function* rootSaga() {
