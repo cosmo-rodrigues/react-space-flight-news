@@ -1,19 +1,12 @@
-import { all, fork } from 'redux-saga/effects';
+import { all, fork } from "redux-saga/effects";
 
-import { rootSaga as address } from './address'
-import { rootSaga as company } from './company'
-import { rootSaga as posts } from './posts'
-import { rootSaga as users } from './users';
-import { rootSaga as faker } from './faker';
+import { rootSaga as articles } from "./articles";
+import { rootSaga as blogs } from "./blogs";
+import { rootSaga as info } from "./info";
+import { rootSaga as reports } from "./reports";
 
 function* rootSaga() {
-  yield all([
-    fork(address),
-    fork(company),
-    fork(posts),
-    fork(users),
-    fork(faker),
-  ]);
+  yield all([fork(articles), fork(blogs), fork(info), fork(reports)]);
 }
 
 export default rootSaga;
