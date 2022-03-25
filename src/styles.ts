@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
+
+interface Props {
+  activeTheme: string;
+}
 
 export const Container = styled.div`
   align-items: center;
@@ -9,22 +13,29 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const Hero = styled.main`
-  background-image: linear-gradient(
-    230deg,
-    hsl(182deg 100% 39%) 1%,
-    hsl(183deg 57% 52%) 40%,
-    hsl(183deg 55% 59%) 48%,
-    hsl(183deg 53% 64%) 51%,
-    hsl(183deg 52% 69%) 51%,
-    hsl(183deg 52% 74%) 50%,
-    hsl(183deg 51% 79%) 50%,
-    hsl(182deg 51% 83%) 49%,
-    hsl(182deg 50% 87%) 49%,
-    hsl(182deg 50% 92%) 52%,
-    hsl(182deg 50% 96%) 60%,
-    hsl(0deg 0% 100%) 99%
-  );
+export const Hero = styled.main<Props>`
+  ${({ activeTheme }) =>
+    activeTheme === "dark"
+      ? css`
+          background-image: linear-gradient(
+            220deg,
+            hsl(243deg 29% 25%) 1%,
+            hsl(229deg 36% 31%) 50%,
+            hsl(221deg 44% 36%) 50%,
+            hsl(215deg 53% 41%) 50%,
+            hsl(211deg 63% 45%) 99%
+          );
+        `
+      : css`
+          background-image: linear-gradient(
+            220deg,
+            hsl(177deg 90% 70%) 1%,
+            hsl(176deg 90% 79%) 50%,
+            hsl(176deg 90% 87%) 50%,
+            hsl(175deg 91% 94%) 50%,
+            hsl(0deg 0% 100%) 99%
+          );
+        `}
 
   height: 100vh;
   width: 100%;

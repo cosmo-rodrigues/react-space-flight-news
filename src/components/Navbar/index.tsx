@@ -6,10 +6,11 @@ import {
   Tab,
   Tabs,
   Toolbar,
-  Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+
+import { useTheme as styledTheme } from "styled-components";
 
 import { Image } from "./styles";
 
@@ -23,17 +24,16 @@ interface Props {
 export function Navbar({ toggleTheme }: Props) {
   const [value, setValue] = useState();
   const theme = useTheme();
+  const myTheme = styledTheme();
+
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <AppBar sx={{ background: "#063970" }}>
+    <AppBar sx={{ background: myTheme.colors.background }}>
       <Toolbar>
         <Image src="logo.png" />
         {isMatch ? (
           <>
-            <Typography sx={{ fontSize: "2rem", paddingLeft: "10%" }}>
-              Spaceship
-            </Typography>
             <DrawerComponent />
           </>
         ) : (
@@ -44,6 +44,7 @@ export function Navbar({ toggleTheme }: Props) {
               textColor="inherit"
               value={value}
               onChange={(e, value) => setValue(value)}
+              style={{ color: myTheme.colors.text }}
             >
               <Tab label="Home" />
               <Tab label="Services" />
@@ -58,7 +59,7 @@ export function Navbar({ toggleTheme }: Props) {
             </Button>
           </>
         )}
-        <Switcher label="dark" toggleTheme={toggleTheme} />
+        <Switcher toggleTheme={toggleTheme} />
       </Toolbar>
     </AppBar>
   );

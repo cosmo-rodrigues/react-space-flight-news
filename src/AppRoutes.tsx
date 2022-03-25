@@ -12,16 +12,20 @@ import { Navbar } from "./components/Navbar/index";
 
 import { Container, Hero } from "./styles";
 import { Footer } from "./components/Footer";
+import { useTheme } from "styled-components";
+import { useEffect } from "react";
 
 interface Props {
   toggleTheme(): void;
 }
 
 export function AppRoutes({ toggleTheme }: Props) {
+  const theme = useTheme();
+
   return (
     <Container>
       <Navbar toggleTheme={toggleTheme} />
-      <Hero>
+      <Hero activeTheme={theme.title}>
         <Routes>
           <Route caseSensitive path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
