@@ -33,7 +33,12 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
   a {
+    color: ${({ theme }) => theme.colors.text};
     text-decoration: none;
+    transition: 0.5s;
+  }
+  a:hover {
+    color: ${({ theme }) => theme.colors.danger};
   }
   [disabled] {
     opacity: 0.6;
