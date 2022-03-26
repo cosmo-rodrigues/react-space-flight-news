@@ -24,7 +24,7 @@ interface Props {
   imageUrl: string;
 }
 
-export default function ModalUnstyledDemo({
+export function ModalComponent({
   open,
   handleOpen,
   handleClose,

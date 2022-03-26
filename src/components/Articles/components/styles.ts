@@ -59,5 +59,6 @@ export const style = {
   pt: 2,
   px: 4,
   pb: 3,
-  width: 700,
+  maxWidth: 700,
+  width: "90%",
 };

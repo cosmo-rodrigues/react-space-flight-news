@@ -1,6 +1,6 @@
 import { Button, Grid } from "@mui/material";
 import { memo, useState } from "react";
-import ModalUnstyledDemo from "./components/modal";
+import { ModalComponent } from "./components/modal";
 import {
   CardsWrapper,
   Container,
@@ -61,7 +61,7 @@ function ArticlesComponent({
           </Grid>
         </CardsWrapper>
       </Container>
-      <ModalUnstyledDemo
+      <ModalComponent
         open={open}
         handleOpen={handleOpen}
         handleClose={handleClose}
