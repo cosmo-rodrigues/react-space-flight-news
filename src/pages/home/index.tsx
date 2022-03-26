@@ -1,7 +1,8 @@
 // @ts-nocheck
 import { useEffect, useState } from "react";
-import { Container } from "./styles";
 import { useDispatch } from "react-redux";
+
+import { Container } from "./styles";
 
 import { actions as articlesActions } from "../../store/modules/articles";
 import { SearchBar } from "../../components/SearchBar";
@@ -9,9 +10,9 @@ import { useSearch } from "../../hooks/useSearch";
 import { Articles } from "../../components/Articles";
 
 export function Home() {
+  const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const { filteredData, handleFilter, wordEntered } = useSearch(data);
-  const dispatch = useDispatch();
 
   function fetchUsers() {
     dispatch(

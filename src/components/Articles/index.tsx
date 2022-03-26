@@ -1,6 +1,10 @@
+import { memo, useEffect, useRef, useState } from "react";
+
 import { Button, Grid } from "@mui/material";
-import { memo, useState } from "react";
 import { ModalComponent } from "./components/modal";
+
+import gsap from "gsap";
+
 import {
   CardsWrapper,
   Container,
@@ -31,25 +35,49 @@ function ArticlesComponent({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  let app = useRef(null);
+  let element01 = useRef(null);
+  let element02 = useRef(null);
+  let element03 = useRef(null);
+  let element04 = useRef(null);
+  let element05 = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      [
+        app.current,
+        element01.current,
+        element02.current,
+        element03.current,
+        element04.current,
+        element05.current,
+      ],
+      3,
+      { y: 50 },
+      { y: 0, opacity: 0.9 }
+    );
+  }, []);
+
   return (
     <>
-      <Container>
+      <Container ref={app}>
         <CardsWrapper>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={12} md={4}>
+            <Grid item xs={12} sm={12} md={4} ref={element01}>
               <ImageContainer>
                 <Image src={imageUrl} />
               </ImageContainer>
             </Grid>
             <Grid item xs={12} sm={12} md={8}>
               <Content>
-                <Title>{title}</Title>
-                <Infos>
+                <Title ref={element02}>{title}</Title>
+                <Infos ref={element03}>
                   <p>{updatedAt}</p>
                   <button>{newsSite}</button>
                 </Infos>
-                <TextContent>{summary}</TextContent>
+                <TextContent ref={element04}>{summary}</TextContent>
                 <Button
+                  ref={element05}
                   onClick={() => handleOpen()}
                   sx={{ marginLeft: "auto" }}
                   variant="contained"
