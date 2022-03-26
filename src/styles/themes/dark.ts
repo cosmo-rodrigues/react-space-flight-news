@@ -8,4 +8,6 @@ export const dark = {
     secondary: "#D07017",
     text: "#FFFFFF",
   },
+  bgImage:
+    "http://s2.glbimg.com/6TcfQssLf7YFzzDqknxB7ScTJo8=/e.glbimg.com/og/ed/f/original/2014/07/30/vialactea.jpg",
 };

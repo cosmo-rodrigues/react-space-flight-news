@@ -24,7 +24,7 @@ export function AppRoutes({ toggleTheme }: Props) {
   return (
     <Container>
       <Navbar toggleTheme={toggleTheme} />
-      <Hero activeTheme={theme.title}>
+      <Hero activeTheme={theme.bgImage}>
         <Routes>
           <Route caseSensitive path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

@@ -34,6 +34,9 @@ export function Home() {
               key={`${article.id}`}
               title={article.title}
               summary={article.summary}
+              newsSite={article.newsSite}
+              imageUrl={article.imageUrl}
+              updatedAt={article.updatedAt}
             />
           ))
         : data.map((article) => (
@@ -41,6 +44,9 @@ export function Home() {
               key={`${article.id}`}
               title={article.title}
               summary={article.summary}
+              newsSite={article.newsSite}
+              imageUrl={article.imageUrl}
+              updatedAt={article.updatedAt}
             />
           ))}
     </Container>

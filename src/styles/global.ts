@@ -16,8 +16,6 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   body {
-	overflow-y: scroll !important;
-	overflow-x: hidden !important;
     background: var(--background);
     -webkit-font-smoothing: antialiased;
   }

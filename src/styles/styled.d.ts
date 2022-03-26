@@ -3,7 +3,6 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     title: string;
-
     colors: {
       background: string;
       danger: string;
@@ -11,5 +10,6 @@ declare module "styled-components" {
       secondary: string;
       text: string;
     };
+    bgImage: string;
   }
 }
