@@ -30,6 +30,7 @@
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:cov": "jest --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -53,6 +54,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
+    "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/dotenv": "^8.2.0",
     "@types/jest": "^27.4.1",
@@ -69,6 +71,7 @@
     "@types/redux-persist-transform-filter": "^0.0.15",
     "@types/redux-saga": "^0.10.5",
     "@types/styled-components": "^5.1.24",
+    "msw": "^0.39.2",
     "redux-devtools-extension": "^2.13.9",
     "typescript": "^4.4.2"
   },
