@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Container = styled.section`
   background-color: tomato;
   margin: 10px;
-  padding: 10px;
-  width: 50%;
+  padding: 5% 30%;
+  width: 100%;
   z-index: 5;
 `;
 

@@ -8,6 +8,19 @@ import { constants } from "../modules/articles";
 function* getAllArticles(action: () => any): SagaIterator {
   try {
     const payload = yield call(api.getAllArticles);
+
+    payload.map(
+      (article) =>
+        (article.updatedAt = new Date(article.updatedAt).toLocaleDateString(
+          "pt-BR",
+          {
+            day: "2-digit",
+            month: "numeric",
+            year: "numeric",
+          }
+        ))
+    );
+
     yield put({ type: constants.GET_ALL_ARTICLES.SUCCESS, payload });
     action.next && action.next(payload);
   } catch (e) {
