@@ -1,8 +1,8 @@
 const BASE_URL =
   "https://api.spaceflightnewsapi.net/v3" || process.env.BASE_URL;
 
-export async function getAllBlogs() {
-  const request = await fetch(`${BASE_URL}/blogs`);
+export async function getAllBlogs(page = 1) {
+  const request = await fetch(`${BASE_URL}/blogs?_limit=10&_start=${page}`);
   return request;
 }
 

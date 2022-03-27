@@ -24,7 +24,7 @@ export function SearchBar({ value, handleFilter, sort, handleChange }: Props) {
   const myTheme = styledTheme();
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} data-testid="search-bar">
       <CssBaseline />
       <AppBar
         position="static"

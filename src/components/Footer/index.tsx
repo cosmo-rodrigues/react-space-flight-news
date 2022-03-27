@@ -9,7 +9,7 @@ export function Footer() {
   const myTheme = styledTheme();
 
   return (
-    <Container>
+    <Container data-testid="footer">
       <Grid container spacing={5}>
         <Grid item xs={12} sm={4}>
           <Box borderBottom={3} color={myTheme.colors.secondary}>

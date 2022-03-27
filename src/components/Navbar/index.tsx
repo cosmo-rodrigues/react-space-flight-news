@@ -35,9 +35,12 @@ export function Navbar({ toggleTheme }: Props) {
   };
 
   return (
-    <AppBar sx={{ background: myTheme.colors.background }}>
+    <AppBar
+      sx={{ background: myTheme.colors.background }}
+      data-testid="nav-bar"
+    >
       <Toolbar>
-        <Image src="logo.png" />
+        <Image src="logo.png" alt="Space Flight News Logo" />
         {isMatch ? (
           <>
             <DrawerComponent />

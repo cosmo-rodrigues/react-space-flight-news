@@ -2,6 +2,7 @@ import { styled } from "@mui/material/styles";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
+import { usePersistedState } from "../../../hooks/usePersistedState";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -55,12 +56,20 @@ interface Props {
 }
 
 export function Switcher({ toggleTheme }: Props) {
+  const [checked, setChecked] = usePersistedState("checked", false);
+
+  function handleToggle() {
+    setChecked(!checked);
+    toggleTheme();
+  }
+
   return (
     <FormGroup>
       <FormControlLabel
+        checked={checked}
         label=""
-        control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-        onChange={toggleTheme}
+        control={<MaterialUISwitch sx={{ m: 1 }} />}
+        onChange={handleToggle}
       />
     </FormGroup>
   );

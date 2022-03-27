@@ -5,8 +5,6 @@ import { rootSaga as blogs } from "./blogs";
 import { rootSaga as info } from "./info";
 import { rootSaga as reports } from "./reports";
 
-function* rootSaga() {
+export function* rootSaga() {
   yield all([fork(articles), fork(blogs), fork(info), fork(reports)]);
 }
-
-export default rootSaga;

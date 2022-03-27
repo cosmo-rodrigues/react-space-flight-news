@@ -1,8 +1,8 @@
 const BASE_URL =
   "https://api.spaceflightnewsapi.net/v3" || process.env.BASE_URL;
 
-export async function getAllReports() {
-  const request = await fetch(`${BASE_URL}/reports`);
+export async function getAllReports(page = 1) {
+  const request = await fetch(`${BASE_URL}/reports?_limit=10&_start=${page}`);
   return request;
 }
 
