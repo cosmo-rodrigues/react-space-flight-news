@@ -5,6 +5,7 @@ export const light = {
     danger: "#D72638",
     primary: "#51A3A3",
     secondary: "#12355B",
+    sky: "#1976d2",
     text: "#333",
   },
   bgImage: "https://wallpaperaccess.com/full/1934577.jpg",

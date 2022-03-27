@@ -8,6 +8,7 @@ declare module "styled-components" {
       danger: string;
       primary: string;
       secondary: string;
+      sky: string;
       text: string;
     };
     bgImage: string;

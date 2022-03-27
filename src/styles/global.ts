@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
   a {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.sky};
     text-decoration: none;
     transition: 0.5s;
   }

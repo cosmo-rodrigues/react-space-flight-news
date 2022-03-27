@@ -35,7 +35,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h4`
-  color: ${({ theme }) => theme.colors.danger};
+  color: ${({ theme }) => theme.colors.sky};
   font-size: 1.5rem;
   font-weight: 600;
   text-shadow: -0.5px 0.5px 1px #f3f9f9;

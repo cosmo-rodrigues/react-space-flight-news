@@ -1,19 +1,19 @@
 import React from "react";
-import { rest } from "msw";
-import { setupServer } from "msw/node";
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 
-const server = setupServer(
-  rest.get("/greeting", (req, res, ctx) => {
-    return res(ctx.json({ greeting: "hello there" }));
-  })
-);
+import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { store } from "../../store/store";
 
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+import App from "../../App";
 
-describe("Home page", () => {
-  it.todo("Home");
+test("App should be render", () => {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+
+  const searchElement = screen.getByPlaceholderText("Search…");
+
+  expect(searchElement).toBeInTheDocument();
 });

@@ -6,6 +6,7 @@ export const dark = {
     danger: "#D72638",
     primary: "#302E53",
     secondary: "#D07017",
+    sky: "#1976d2",
     text: "#FFFFFF",
   },
   bgImage:

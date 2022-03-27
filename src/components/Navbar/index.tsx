@@ -24,11 +24,15 @@ interface Props {
 }
 
 export function Navbar({ toggleTheme }: Props) {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(0);
   const theme = useTheme();
   const myTheme = styledTheme();
 
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleChange = (newValue: number) => {
+    setValue(newValue);
+  };
 
   return (
     <AppBar sx={{ background: myTheme.colors.background }}>
@@ -42,23 +46,22 @@ export function Navbar({ toggleTheme }: Props) {
           <>
             <Tabs
               sx={{ marginLeft: "auto" }}
-              indicatorColor="secondary"
+              indicatorColor="primary"
               textColor="inherit"
               value={value}
-              onChange={(e, value) => setValue(value)}
-              style={{ color: myTheme.colors.text }}
+              style={{ color: myTheme.colors.sky, fontWeight: 700 }}
             >
               <Link to="/">
-                <Tab label="Home" />
+                <Tab onClick={() => handleChange(0)} label="Home" />
               </Link>
               <Link to="/services">
-                <Tab label="Services" />
+                <Tab onClick={() => handleChange(1)} label="Services" />
               </Link>
               <Link to="/about">
-                <Tab label="About" />
+                <Tab onClick={() => handleChange(2)} label="About" />
               </Link>
               <Link to="/contact">
-                <Tab label="Contact" />
+                <Tab onClick={() => handleChange(3)} label="Contact" />
               </Link>
             </Tabs>
             <Button sx={{ marginLeft: "auto" }} variant="contained">

@@ -20,6 +20,7 @@ function App() {
     }
     return setTheme(light);
   };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
