@@ -1,10 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
-  overflow-y: scroll;
+  min-height: 100vh;
   padding-top: 9vh;
   width: 100%;
+
+  h1 {
+    color: ${({ theme }) => theme.colors.text};
+    font-size: 3rem;
+    left: 43%;
+    position: absolute;
+    top: 30%;
+  }
 
   nav {
     align-items: center;

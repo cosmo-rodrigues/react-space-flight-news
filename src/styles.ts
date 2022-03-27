@@ -7,7 +7,6 @@ interface Props {
 export const Container = styled.div`
   align-items: center;
   display: flex;
-  height: 100vh;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
@@ -19,6 +18,7 @@ export const Hero = styled.main<Props>`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  background-attachment: fixed;
   width: 100%;
+  z-index: -1;
 `;

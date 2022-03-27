@@ -8,11 +8,12 @@ import { actions as articlesActions } from "../../store/modules/articles";
 import { SearchBar } from "../../components/SearchBar";
 import { useSearch } from "../../hooks/useSearch";
 import { Articles } from "../../components/Articles";
-import { Pagination, Stack } from "@mui/material";
+import { Box, CircularProgress, Pagination, Stack } from "@mui/material";
 
 export function Home() {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { filteredData, handleFilter, wordEntered } = useSearch(data);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -29,6 +30,7 @@ export function Home() {
   function fetchUsers() {
     dispatch(
       articlesActions.getAllArticles((next) => {
+        setLoading(false);
         return setData(next);
       })
     );
@@ -40,39 +42,37 @@ export function Home() {
 
   return (
     <Container>
-      <SearchBar value={wordEntered} handleFilter={handleFilter} />
-      <Stack spacing={2}>
-        <Pagination
-          onClick={(page) => handleChangePage(page)}
-          count={pagesTotal}
-          page={currentPage}
-          color="primary"
-        />
-      </Stack>
-      {wordEntered
-        ? filteredData.map((article) => (
-            <Articles
-              key={`${article.id}`}
-              title={article.title}
-              summary={article.summary}
-              newsSite={article.newsSite}
-              imageUrl={article.imageUrl}
-              updatedAt={article.updatedAt}
-            />
-          ))
-        : currentTableData.map((article) => (
-            <Articles
-              key={`${article.id}`}
-              title={article.title}
-              summary={article.summary}
-              newsSite={article.newsSite}
-              imageUrl={article.imageUrl}
-              updatedAt={article.updatedAt}
-            />
-          ))}
-      <Stack spacing={2}>
-        <Pagination count={10} color="primary" />
-      </Stack>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
+          <SearchBar value={wordEntered} handleFilter={handleFilter} />
+          {wordEntered
+            ? filteredData.map((article) => (
+                <Articles
+                  key={`${article.id}`}
+                  title={article.title}
+                  summary={article.summary}
+                  newsSite={article.newsSite}
+                  imageUrl={article.imageUrl}
+                  updatedAt={article.updatedAt}
+                />
+              ))
+            : currentTableData.map((article) => (
+                <Articles
+                  key={`${article.id}`}
+                  title={article.title}
+                  summary={article.summary}
+                  newsSite={article.newsSite}
+                  imageUrl={article.imageUrl}
+                  updatedAt={article.updatedAt}
+                />
+              ))}
+          <Stack spacing={2}>
+            <Pagination count={10} color="primary" />
+          </Stack>
+        </>
+      )}
     </Container>
   );
 }
