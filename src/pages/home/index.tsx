@@ -90,6 +90,7 @@ export function Home() {
                   newsSite={article.newsSite}
                   imageUrl={article.imageUrl}
                   updatedAt={article.updatedAt}
+                  url={article.url}
                 />
               ))
             : items
@@ -102,6 +103,7 @@ export function Home() {
                     newsSite={article.newsSite}
                     imageUrl={article.imageUrl}
                     updatedAt={article.updatedAt}
+                    url={article.url}
                   />
                 ))}
           <Stack spacing={2}>

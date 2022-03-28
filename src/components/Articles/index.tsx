@@ -17,6 +17,7 @@ import {
 } from "./styles";
 
 interface Props {
+  url: string;
   title: string;
   summary: string;
   newsSite: string;
@@ -25,6 +26,7 @@ interface Props {
 }
 
 function ArticlesComponent({
+  url,
   title,
   summary,
   newsSite,
@@ -95,7 +97,7 @@ function ArticlesComponent({
         handleClose={handleClose}
         title={title}
         summary={summary}
-        newsSite={newsSite}
+        url={url}
         updatedAt={updatedAt}
         imageUrl={imageUrl}
       />

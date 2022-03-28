@@ -19,7 +19,7 @@ interface Props {
   handleClose(): void;
   title: string;
   summary: string;
-  newsSite: string;
+  url: string;
   updatedAt: string;
   imageUrl: string;
 }
@@ -30,7 +30,7 @@ export function ModalComponent({
   handleClose,
   title,
   summary,
-  newsSite,
+  url,
   updatedAt,
   imageUrl,
 }: Props) {
@@ -63,7 +63,9 @@ export function ModalComponent({
                   sx={{ marginLeft: "auto" }}
                   variant="contained"
                 >
-                  Go To Website
+                  <a target="_blank" href={url} rel="noreferrer">
+                    Go To Website
+                  </a>
                 </Button>
               </Grid>
             </Grid>

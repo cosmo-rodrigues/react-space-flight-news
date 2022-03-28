@@ -18,7 +18,6 @@ export const useSortableData = (items, direction) => {
       }
       return 0;
     });
-    console.log("sortableItems: ", sortableItems);
     return sortableItems;
   }, [items, sortConfig]);
 
