@@ -9,14 +9,17 @@ import { SearchBar } from "../../components/SearchBar";
 import { useSearch } from "../../hooks/useSearch";
 import { Articles } from "../../components/Articles";
 import { Pagination, Stack } from "@mui/material";
+import { useSortableData } from "../../hooks/useSortableData";
 
 export function Home() {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [sorted, setSorted] = useState("ascending");
+  const { items, requestSort } = useSortableData(data, sorted);
   const { filteredData, handleFilter, wordEntered } = useSearch(data);
-  const [articles, setArticles] = useState([]);
   const [range, setRange] = useState({ from: 0, to: 10 });
+  const [loading, setLoading] = useState(true);
+  const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
 
   function fetchUsers() {
@@ -38,6 +41,10 @@ export function Home() {
     }
     return setArticles(data);
   }, [filteredData]);
+
+  useEffect(() => {
+    requestSort("updatedAt", sorted);
+  }, [sorted]);
 
   function handleChange(event, value) {
     if (value > page && value <= 10) {
@@ -68,7 +75,12 @@ export function Home() {
         <h1>Loading...</h1>
       ) : (
         <>
-          <SearchBar value={wordEntered} handleFilter={handleFilter} />
+          <SearchBar
+            handleFilter={handleFilter}
+            value={wordEntered}
+            setSorted={setSorted}
+            sorted={sorted}
+          />
           {wordEntered
             ? articles.map((article) => (
                 <Articles
@@ -80,7 +92,7 @@ export function Home() {
                   updatedAt={article.updatedAt}
                 />
               ))
-            : data
+            : items
                 .slice(range.from, range.to)
                 .map((article) => (
                   <Articles

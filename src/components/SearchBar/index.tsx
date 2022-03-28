@@ -15,12 +15,11 @@ import { Search, SearchIconWrapper, StyledInputBase, style } from "./styles";
 
 interface Props {
   value: string;
-  sort: string;
+  setSorted(input: string): void;
   handleFilter(input: string): void;
-  handleChange(input: string): void;
 }
 
-export function SearchBar({ value, handleFilter, sort, handleChange }: Props) {
+export function SearchBar({ value, handleFilter, setSorted }: Props) {
   const myTheme = styledTheme();
 
   return (
@@ -61,11 +60,11 @@ export function SearchBar({ value, handleFilter, sort, handleChange }: Props) {
               backgroundColor: myTheme.colors.background,
             }}
             placeholder="Sort"
-            value={sort}
-            onChange={({ target }) => handleChange(target.value)}
+            defaultValue=""
+            onChange={({ target }) => setSorted(target.value)}
           >
-            <MenuItem value="asc">Newest</MenuItem>
-            <MenuItem value="desc">Oldest</MenuItem>
+            <MenuItem value="ascending">Oldest</MenuItem>
+            <MenuItem value="descending">Newest</MenuItem>
           </Select>
         </Toolbar>
       </AppBar>
