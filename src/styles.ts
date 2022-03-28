@@ -10,6 +10,10 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+
+  h1 {
+    color: ${({ theme }) => theme.colors.text};
+  }
 `;
 
 export const Hero = styled.main<Props>`
@@ -20,5 +24,4 @@ export const Hero = styled.main<Props>`
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
-  z-index: -1;
 `;

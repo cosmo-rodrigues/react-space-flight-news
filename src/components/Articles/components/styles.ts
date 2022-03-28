@@ -7,7 +7,6 @@ export const Container = styled.section`
   opacity: 0.9;
   padding: 5% 10%;
   width: 100%;
-  z-index: 5;
 `;
 
 export const CardsWrapper = styled.div`
