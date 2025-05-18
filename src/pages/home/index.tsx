@@ -111,6 +111,10 @@ export function Home() {
               page={page}
               onChange={handleChange}
               color="primary"
+              style={{
+                position: "fixed",
+                bottom: 0,
+              }}
             />
           </Stack>
         </>
