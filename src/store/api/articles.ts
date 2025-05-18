@@ -2,7 +2,7 @@ const BASE_URL =
   "https://api.spaceflightnewsapi.net/v4/articles";
 
 export function getAllArticles(page = 1) {
-  const request = fetch(`${BASE_URL}/articles?_limit=100&_start=${page}`)
+  const request = fetch(`${BASE_URL}/articles/?limit=100&offset=${page}`)
     .then((data) => data.json())
     .catch((erro) => console.error(erro));
 
