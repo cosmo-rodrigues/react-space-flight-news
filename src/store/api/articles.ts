@@ -1,5 +1,5 @@
 const BASE_URL =
-  "https://api.spaceflightnewsapi.net/v3" || process.env.BASE_URL;
+  "https://api.spaceflightnewsapi.net/v4/articles";
 
 export function getAllArticles(page = 1) {
   const request = fetch(`${BASE_URL}/articles?_limit=100&_start=${page}`)
