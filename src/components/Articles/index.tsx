@@ -67,7 +67,10 @@ function ArticlesComponent({
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={4} ref={element01}>
               <ImageContainer>
-                <Image src={imageUrl} />
+                <Image
+                  src={imageUrl ? imageUrl : "/rocket-svgrepo-com.svg"}
+                  alt="News image"
+                />
               </ImageContainer>
             </Grid>
             <Grid item xs={12} sm={12} md={8}>
@@ -75,7 +78,7 @@ function ArticlesComponent({
                 <Title ref={element02}>{title}</Title>
                 <Infos ref={element03}>
                   <p>{updatedAt}</p>
-                  <button>{newsSite}</button>
+                  <span>{newsSite}</span>
                 </Infos>
                 <TextContent ref={element04}>{summary}</TextContent>
                 <Button

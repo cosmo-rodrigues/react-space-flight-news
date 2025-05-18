@@ -9,10 +9,10 @@ function* getAllArticles(action: () => any): SagaIterator {
   try {
     const payload = yield call(api.getAllArticles);
 
-    payload.map(
+    payload.results.map(
       (article) =>
-        (article.updatedAt = new Date(article.updatedAt).toLocaleDateString(
-          "pt-BR",
+        (article.updated_at = new Date(article.updated_at).toLocaleDateString(
+          "en-US",
           {
             day: "2-digit",
             month: "numeric",

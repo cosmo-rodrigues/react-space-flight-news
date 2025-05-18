@@ -22,6 +22,10 @@ export const CardsWrapper = styled.div`
 `;
 
 export const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
   width: 100%;
 `;
 
@@ -30,7 +34,7 @@ export const Image = styled.img`
 `;
 
 export const Content = styled.div`
-  width: 80%;
+  width: 100%;
 `;
 
 export const Title = styled.h4`
@@ -42,10 +46,19 @@ export const Title = styled.h4`
 
 export const Infos = styled.div`
   align-items: center;
+  color: ${({ theme }) => theme.colors.secondary};
   display: flex;
   justify-content: space-between;
-  color: ${({ theme }) => theme.colors.secondary};
-  width: 90%;
+  padding: 15px 0;
+  width: 100%;
+
+  span,
+  p {
+    background-color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    padding: 1px 15px;
+  }
 `;
 
 export const TextContent = styled.p`

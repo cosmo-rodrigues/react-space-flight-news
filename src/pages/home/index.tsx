@@ -26,7 +26,7 @@ export function Home() {
     dispatch(
       articlesActions.getAllArticles((next) => {
         setLoading(false);
-        return setData(next);
+        return setData(next.results);
       })
     );
   }
@@ -71,9 +71,8 @@ export function Home() {
 
   return (
     <Container>
-      {loading ? (
-        <h1>Loading...</h1>
-      ) : (
+      {loading && <h1>Loading...</h1>}
+      {data ? (
         <>
           <SearchBar
             handleFilter={handleFilter}
@@ -87,9 +86,9 @@ export function Home() {
                   key={`${article.id}`}
                   title={article.title}
                   summary={article.summary}
-                  newsSite={article.newsSite}
-                  imageUrl={article.imageUrl}
-                  updatedAt={article.updatedAt}
+                  newsSite={article.news_site}
+                  imageUrl={article.image_url}
+                  updatedAt={article.updated_at}
                   url={article.url}
                 />
               ))
@@ -100,9 +99,9 @@ export function Home() {
                     key={`${article.id}`}
                     title={article.title}
                     summary={article.summary}
-                    newsSite={article.newsSite}
-                    imageUrl={article.imageUrl}
-                    updatedAt={article.updatedAt}
+                    newsSite={article.news_site}
+                    imageUrl={article.image_url}
+                    updatedAt={article.updated_at}
                     url={article.url}
                   />
                 ))}
@@ -115,6 +114,8 @@ export function Home() {
             />
           </Stack>
         </>
+      ) : (
+        <h1>No articles found</h1>
       )}
     </Container>
   );
