@@ -1,5 +1,5 @@
 const BASE_URL =
-  "https://api.spaceflightnewsapi.net/v4/articles";
+  "https://api.spaceflightnewsapi.net/v4";
 
 export function getAllArticles(page = 1) {
   const request = fetch(`${BASE_URL}/articles/?limit=100&offset=${page}`)
